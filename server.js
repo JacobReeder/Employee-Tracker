@@ -28,6 +28,8 @@ const trackerPrompt = () => {
 
 ////TODO: add link to sql database here?
 /////TODO: create if statements depending on each choice?
+////TODO: will need to use async and new sql to display sql data in the app
+///TODO; export inquirer prompt into an index
 
 /* const trackerProject = () => {
 

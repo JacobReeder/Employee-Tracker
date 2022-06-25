@@ -11,44 +11,44 @@ Employee Tracker
 `)
 
 function RunApp() {
-//   inquirer.prompt.trackerPrompt.then(result => {
+   //   inquirer.prompt.trackerPrompt.then(result => {
     
-/*  if ( === 'View Employee') {
+  if (result.res === 'View Employee') {
 
 
-    }*/
+    }
 
-/*  if ( === 'Add an Employee') {
+  if (result.res === 'Add an Employee') {
 
 
-    }*/
+    }
   
-/*if ( === 'Update Employee') {
+  if (result.res === 'Update Employee') {
 
-   inguirer.prompt([
+  // inguirer.prompt([
 
-    }*/
+    }
   
-/* if ( === 'View Role') {
+  if (result.res === 'View Role') {
 
-    inguirer.prompt([
+    //  inguirer.prompt([
+  }
+  
+ if (result.res === 'Add Role') {
+  //  inguirer.prompt([
+    }
+  
+ if (result.res === 'View Department') {
+   // inguirer.prompt([
+  }
 
-}*/
+  if (result.res === 'New Department') {
+      }
   
- /*if ( === 'Add Role') {
-   inguirer.prompt([
-    }*/
-  
-/* if ( === 'View Department') {
-    inguirer.prompt([
-}*/
-
- /* if ( === 'New Department') {
-      }*/
-  
- /*if ( === 'DONE') {
-   inguirer.prompt([
-    }*/
+  if (result.res === 'DONE') {
+   //inguirer.prompt([
+ }
+ 
 }
 
 

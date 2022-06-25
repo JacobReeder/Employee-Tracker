@@ -1,54 +1,27 @@
-const express = require('express');
-const app = express();
 const db = require('./db/connection');
-const inputCheck = require('./utils/inputCheck');
+const inquirer = require('inquirer');
+const consoleTable = require('console.table');
 
-var inquirer = require('inquirer');
+console.log(`
+=================
+Employee Tracker
+=================
+`)
 
-/*class RunApp {
+function RunApp() {
+//   inquirer.prompt([
   
-  constructor () {
-
-    this.appLogo= `
-    
-    =================
-    Employee Tracker
-    =================
-    
-   \n `
-
-   console.clear();
-   console.log(this.appLogo)
-   
  }
-
-           
-
- 
-    
-
-   
-
-
-
-////TODO: link console.table here?
-/////TODO: create if statements depending on each choice?
-////TODO: will need to use async and new sql to display sql data in the app
-///TODO; export inquirer prompt into an index
-
-/* const trackerProject = () => {
-
-}
-*/ 
+//  if (this.choicesType === 'Add an Employee') {
+  
+//  if (this.choicesType === 'Add a Department') {
+//    inguirer.prompt([
+  
+//  if (this.choicesType === 'Add a Role') {
+//     inguirer.prompt([
 
 
-  //  trackerPrompt().then(answers => console.log(answers));
-    //TODO: Use this for if statements?
-    //trackerPrompt()
-    //.then(answers => console.log(answers))
-    //.then(trackerProject)
-    //.then(trackerAnswers => console.log(projectAnswers))
- // })
+
 
 
 

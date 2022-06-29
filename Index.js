@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const consoleTable = require('console.table');
 
 const {trackerPrompt, nextChoice, newDep, newRole} = require('./pages/prompt');
+const {getName, getRole} = require('./pages/function')
 
 console.log(`
 =================
@@ -14,8 +15,10 @@ function RunApp() {
    //   inquirer.prompt.trackerPrompt.then(result => {
     
   if (result.res === 'View Employee') {
-
-
+       db.query((err, rows) => {
+        console.table(rows);
+        start();
+       })
     }
 
   if (result.res === 'Add an Employee') {

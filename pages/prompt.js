@@ -36,6 +36,20 @@ const nextChoice = [
     }
 ]
 
+const updateEmp = [
+    {
+        type: 'number',
+        name: 'empId',
+        message: 'Type the number that corresponds to the employee you are trying to update:'  
+    },
+    {
+        type: 'list',
+        name: 'roleName',
+        message: "Choose what the employee's new role will be:",
+        choices: ['Salesperson', 'Software Engineer', 'Customer Service', 'Legal Team Lead', 'Lawyer', 'Lead Engineer', 'Lead Salesperson']
+    }
+]
+
 const newDep = [
     {
         type: 'input',
@@ -74,6 +88,7 @@ const newRole = [
 module.exports = {
     trackerPrompt,
     nextChoice,
+    updateEmp,
     newDep,
     newRole
 }

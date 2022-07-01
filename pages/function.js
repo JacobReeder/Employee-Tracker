@@ -1,11 +1,11 @@
 function getName (name) {
-    if (name === 'Saul Goodman') {
+    if (name === 'Ronald Firbank') {
         return 1
     }
-    if (name === 'Walter White') {
+    if (name === 'Rick Astley') {
         return 2
     }
-    if (name === 'Gus Fring') {
+    if (name === 'Tony Soprano') {
         return 3
     }
     if (name === 'None') {

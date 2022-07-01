@@ -4,7 +4,7 @@ const consoleTable = require('console.table');
 
 const {trackerPrompt, 
        nextChoice, 
-      // updateEmp
+       updateEmp,
        newDep, 
        newRole} = require('./pages/prompt');
 
@@ -18,7 +18,7 @@ const { seeEmployee,
         seeRoles,
         addRole,
         viewDept,
-        addDept } = require('./lib/queries')
+        addDept } = require('./pages/data')
 
 console.log(`
 =================
@@ -39,13 +39,13 @@ function RunApp() {
   if (result.res === 'Add an Employee') {
      inq.prompt(nextChoice).then(res => {
       console.log(res);
-     const managerId = parseManager(res.manager)
+     const managerId = getName(res.manager)
      const params = [res.firstName, res.lastName, res.role, managerId]
    
        db.query(nextChoice, params, (err, result) => {
             if(err) throw err;
             console.log('Employee Added!');
-            start();
+            RunApp();
           })          
        })
     }
@@ -56,16 +56,18 @@ function RunApp() {
      console.log('-------------')
      console.table(data)
     })
-   // setTimeout(()=> {
-    //  inquirer.prompt(/*updateEmp*/).then(res => {
-     //   const employeeId = res.employeeId
-     //   const roleId = parseRole(res.roleName)
-     //   db.query(updateEmployee, [ employeeId, roleId ], (err, res) => {
-     //     console.log('Employee Role changed');
-     //   })
-    //  })
-   // }, 1000)
- // }
+    setTimeout(()=> {
+      inquirer.prompt(updateEmp).then(res => {
+        const employeeId = res.employeeId
+       const roleId = getRole(res.roleName)
+        db.query(updateEmployee, [ employeeId, roleId ], (err, res) => {
+          if(err) throw err;
+          console.log('Employee Role changed');
+          RunApp();
+        })
+     })
+    }, 1000)
+  }
   
   if (result.res === 'View Role') {
     db.query(seeRoles, (err, res) => {
@@ -81,7 +83,7 @@ function RunApp() {
       const salary = res.salary
       const department = res.department
 
-      db.query(newRole, [role, salary, department], (err, res) => {
+      db.query(addRole, [role, salary, department], (err, res) => {
         if (err) throw err;
         console.log('Role added!')
         RunApp();
@@ -89,18 +91,31 @@ function RunApp() {
      })
     }
   
-   /* if (result.res === 'View Department') {
-   // inguirer.prompt([
+    if (result.res === 'View Department') {
+       db.query(viewDept, (err, res) => {
+        if (err) throw err;
+        console.log(`----------`)
+        console.table(res);
+        RunApp();
+       })
     }
 
     if (result.res === 'New Department') {
+    }  inq.prompt(newDep).then(res => {
+      db.query(addDept, res.name, (err, res) => {
+        if (err) throw err;
+        console.log(`Department added!`);
+        RunApp();
+      })
+    })
+  }
+       
+  
+  /* if (result.res === 'DONE') {
+     console.log(`YOU ARE DONE!`);
     }
   
-    if (result.res === 'DONE') {
-     //inguirer.prompt([
-    }*/
-  }
-}
+  }*/
 )}
 
 RunApp();

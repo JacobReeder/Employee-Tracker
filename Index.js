@@ -2,8 +2,22 @@ const db = require('./db/connection');
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
 
-const {trackerPrompt, nextChoice, newDep, newRole} = require('./pages/prompt');
-const {getName, getRole} = require('./pages/function')
+const {trackerPrompt, 
+       nextChoice, 
+       newDep, 
+       newRole} = require('./pages/prompt');
+
+const {getName, 
+      getRole} = require('./pages/function')
+
+const { seeEmployee,  
+        getEmployee,
+        addEmployee,
+        updateEmployee,
+        seeRoles,
+        addRole,
+        viewDept,
+        addDept } = require('./lib/queries')
 
 console.log(`
 =================
@@ -12,17 +26,20 @@ Employee Tracker
 `)
 
 function RunApp() {
-   //   inquirer.prompt.trackerPrompt.then(result => {
+   // inquirer.prompt(menu).then(result => {
     
   if (result.res === 'View Employee') {
-       db.query((err, rows) => {
+       db.query(seeEmployee, (err, rows) => {
         console.table(rows);
         start();
        })
     }
 
   if (result.res === 'Add an Employee') {
-
+  //  inq.prompt().then(res => {
+   //   console.log(res);
+   //   const managerId = parseManager(res.manager)
+   //   const params = [res.firstName, res.lastName, res.role, managerId]
 
     }
   

@@ -2,36 +2,41 @@
 
 const trackerPrompt = {
     type: 'list',
-    name: 'sample',
-    message: 'Welcome to the Employee Tracker. What would you like to do?',
-    choices: ['View All', 'View all Employees', 'View all Departments', 'View all Roles', 'Add an Employee', 'Add a Department', 'Add a Role']
+    name: 'res',
+    message: "Welcome to the Employee Tracker. What would you like to do?",
+    choices: ['View All', 
+    'Add an Employee',
+    'Update Employee',
+    'View Role',
+    'Add Role',
+    'View Departments',  
+    'New Department', 
+    'Quit']
 }   
 
 const nextChoice = [
+       
     {
         type: 'input',
-        name: 'id',
-        message: "What is the Employees ID?"
-    },       
-    {
-        type: 'input',
-        name: 'first_name',
+        name: 'firstName',
         message: "What is the Employees first name?"
        
     },
     {
         type: 'input',
-        name: 'last_name',
-        message: "What is the Employees last name"
+        name: 'lastName',
+        message: "What is the Employees last name?"
      
     },
-    {  type: 'input',
-       name: 'role_id',
-       message: "What is the Employees role ID?"
+    {  type: 'list',
+       name: 'role',
+       message: "What is the Employees role?",
+       choices: [ 'Lawyer', 'Engineer', 'Client Relations', 'Distribution']
     },
-    {  type: 'input',
-       name: 'manager_id',
-        message: "What is the Employees manager ID?"
+    {  type: 'list',
+       name: 'manager',
+        message: "Who is the Employees manager?",
+        choices: [ 'Ronald Firbank', 'Rick Astley', 'Tony Soprano', 'None']
    
     }
 ]
@@ -46,44 +51,41 @@ const updateEmp = [
         type: 'list',
         name: 'roleName',
         message: "Choose what the employee's new role will be:",
-        choices: ['Salesperson', 'Software Engineer', 'Customer Service', 'Legal Team Lead', 'Lawyer', 'Lead Engineer', 'Lead Salesperson']
+        choices: ['Lawyer', 'Engineer', 'Client Relations', 'Distribution']
     }
-]
-
-const newDep = [
-    {
-        type: 'input',
-        name: 'department_name',
-        message: "What is the Department's name?",
-     
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: "What is the Department's ID?",
-     
-    }    
 ]
 
 const newRole = [
     {
       type: 'input',
-      name: 'id',
+      name: 'name',
       message: "What is Role id?"
     },
     {
-      type: 'input',
-      name: 'title',
-      message: "?"
+      type: 'list',
+      name: 'department',
+      message: "?",
+      choices: []
     },
 
    {
-      type: 'input',
+      type: 'number',
       name: 'salary',
       message: "?"
   
   }
 ]
+
+const newDep = [
+    {
+        type: 'input',
+        name: 'name',
+        message: "What is the Department's name?",
+     
+    }   
+]
+
+
 
 module.exports = {
     trackerPrompt,

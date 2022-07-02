@@ -8,9 +8,7 @@ function getName (name) {
     if (name === 'Tony Soprano') {
         return 3
     }
-    if (name === 'None') {
-        return 'NULL'
-    }
+   
 }
 
 function getRole(role) {

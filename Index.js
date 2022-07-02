@@ -29,20 +29,20 @@ Employee Tracker
 function RunApp() {
    inquirer.prompt(trackerPrompt).then(result => {
     
-  if (result.res === 'View Employee') {
+  if (result.res === 'View All') {
        db.query(seeEmployee, (err, rows) => {
         console.table(rows);
-        start();
+        RunApp();
        })
     }
 
   if (result.res === 'Add an Employee') {
-     inq.prompt(nextChoice).then(res => {
+     inquirer.prompt(nextChoice).then(res => {
       console.log(res);
      const managerId = getName(res.manager)
      const params = [res.firstName, res.lastName, res.role, managerId]
    
-       db.query(nextChoice, params, (err, result) => {
+       db.query(addEmployee, params, (err, result) => {
             if(err) throw err;
             console.log('Employee Added!');
             RunApp();
@@ -78,7 +78,7 @@ function RunApp() {
     }) 
   }  
    if (result.res === 'Add Role') {
-     inq.prompt(newRole).then(res => {
+     inquirer.prompt(newRole).then(res => {
       const role = res.name
       const salary = res.salary
       const department = res.department
@@ -101,7 +101,7 @@ function RunApp() {
     }
 
     if (result.res === 'New Department') {
-    }  inq.prompt(newDep).then(res => {
+     inquirer.prompt(newDep).then(res => {
       db.query(addDept, res.name, (err, res) => {
         if (err) throw err;
         console.log(`Department added!`);
@@ -111,11 +111,11 @@ function RunApp() {
   }
        
   
-  /* if (result.res === 'DONE') {
+   if (result.res === 'DONE') {
      console.log(`YOU ARE DONE!`);
     }
   
-  }*/
+  }
 )}
 
 RunApp();

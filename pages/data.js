@@ -7,11 +7,11 @@ LEFT JOIN employee manager on manager.id = employee.manager_id;`
 const getEmployee = `SELECT * FROM employee`
 
 const addEmployee = `INSERT INTO employee(first_name, last_name, role_id, manager_id)
-VALUES (?,?,?,?)`
+VALUES (?,?,?,?)`  //didnt seed
 
-const updateEmployee = `UPDATE employee
+const updateEmployee = `UPDATE employee 
 SET role_id = ?
-WHERE id = ?`
+WHERE id = ?` //didnst seed
 
 const seeRoles = `SELECT title AS Title, salary AS Salary, department.name AS Department
 FROM role
@@ -19,7 +19,7 @@ JOIN department
 ON role.department_id = department.id;`
 
 const addRole = `INSERT INTO role(title, salary, department_id)
-VALUES (?,?,?)`
+VALUES (?,?,?)` //didnt seed
 
 const viewDept = `SELECT * FROM department`
 

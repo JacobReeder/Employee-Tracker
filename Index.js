@@ -40,9 +40,9 @@ function RunApp() {
      inquirer.prompt(nextChoice).then(res => {
       console.log(res);
      const managerId = getName(res.manager)
-     const params = [res.firstName, res.lastName, res.role, managerId]
+     const params = [res.first_name, res.last_name, res.role, managerId]
    
-       db.query(addEmployee, params, (err, result) => {
+       db.query(addEmployee, params, (err, result) => { //not working
             if(err) throw err;
             console.log('Employee Added!');
             RunApp();
@@ -111,7 +111,7 @@ function RunApp() {
   }
        
   
-   if (result.res === 'DONE') {
+   if (result.res === 'Quit') {
      console.log(`YOU ARE DONE!`);
     }
   

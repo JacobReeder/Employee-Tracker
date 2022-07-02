@@ -18,13 +18,13 @@ const nextChoice = [
        
     {
         type: 'input',
-        name: 'firstName',
+        name: 'first_name',
         message: "What is the Employees first name?"
        
     },
     {
         type: 'input',
-        name: 'lastName',
+        name: 'last_name',
         message: "What is the Employees last name?"
      
     },
@@ -59,21 +59,22 @@ const newRole = [
     {
       type: 'input',
       name: 'name',
-      message: "What is Role id?"
+      message: "New role name?"
     },
-    {
-      type: 'list',
-      name: 'department',
-      message: "?",
-      choices: []
-    },
+    ,
 
    {
       type: 'number',
       name: 'salary',
-      message: "?"
+      message: "What is the salary of the new role?"
   
-  }
+    },
+    {
+      type: 'list',
+      name: 'department',
+      message: "Which department?",
+      choices: ['Lawyer', 'Engineer', 'Client Relations', 'Distribution']
+    }
 ]
 
 const newDep = [
